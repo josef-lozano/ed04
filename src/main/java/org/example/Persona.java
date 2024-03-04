@@ -10,7 +10,7 @@ import java.util.List;
  * @author Jose Francisco
  * @version 1.0 04/03/2024
  */
-class Contacto {
+class Persona {
     private String name;
     private List<String> phones;
 
@@ -19,7 +19,7 @@ class Contacto {
      * @param name string que identifica el nombre del contacto.
      * @param phone string que identifica el número que se introducirá en la lista de teléfonos del contacto.
      */
-    public Contacto(String name, String phone) {
+    public Persona(String name, String phone) {
         this.setName(name);
         this.setPhones(new ArrayList<>());
         this.getPhones().add(phone);

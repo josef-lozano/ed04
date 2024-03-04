@@ -14,7 +14,7 @@ public class Agenda {
      * Atributo de la clase Agenda. Se trata de una Lista de contactos en la que guardaremos los contactos con su nombre
      * y teléfono
      */
-    private List<Contacto> contacts; // Lista de Contacto
+    private List<Persona> contacts; // Lista de Contacto
 
     /**
      * Método constructor de la clase Agenda, en la que asignamos un Array al atributo "Contacts".
@@ -30,7 +30,7 @@ public class Agenda {
      */
     public void addContact(String name, String phone) {
         boolean exists = false;
-        for (Contacto c : contacts) {
+        for (Persona c : contacts) {
             if (c.getName().equalsIgnoreCase(name)) {
                 exists = true;
                 c.getPhones().add(phone);
@@ -39,7 +39,7 @@ public class Agenda {
         }
 
         if (!exists) {
-            Contacto newContact = new Contacto(name, phone);
+            Persona newContact = new Persona(name, phone);
             contacts.add(newContact);
         }
     }
@@ -49,10 +49,10 @@ public class Agenda {
      * @param name string que representa el nombre del contacto
      */
     public void removeContact(String name) {
-        Iterator<Contacto> it = contacts.iterator();
+        Iterator<Persona> it = contacts.iterator();
 
         while (it.hasNext()) {
-            Contacto c = it.next();
+            Persona c = it.next();
 
             if (c.getName().equalsIgnoreCase(name)) {
                 it.remove();
@@ -67,7 +67,7 @@ public class Agenda {
      * @param newPhone string que representa el número de teléfono nuevo que queremos utilizar.
      */
     public void modifyPhoneNumber(String name, String oldPhone, String newPhone) {
-        for (Contacto c : contacts) {
+        for (Persona c : contacts) {
             if (c.getName().equalsIgnoreCase(name)) {
                 List<String> phones = c.getPhones();
 
@@ -84,7 +84,7 @@ public class Agenda {
      * Con este método, obtenemos los contactos que tenemos almacenados
      * @return una lista de contactos almacenados en el programa.
      */
-    public List<Contacto> getContacts() {
+    public List<Persona> getContacts() {
         return this.contacts;
     }
 }
