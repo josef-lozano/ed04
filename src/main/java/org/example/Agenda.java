@@ -9,7 +9,7 @@ import java.util.List;
  * @author Jose Francisco Lozano
  * @version 1.0 04/03/2024
  */
-public class Agenda {
+public class Agenda implements IAgenda {
     /**
      * Atributo de la clase Agenda. Se trata de una Lista de contactos en la que guardaremos los contactos con su nombre
      * y teléfono
@@ -28,6 +28,7 @@ public class Agenda {
      * @param name string que representa el nombre del contacto.
      * @param phone string que representa el numero de teléfono del contacto.
      */
+    @Override
     public void addContact(String name, String phone) {
         boolean exists = false;
         for (Persona c : contacts) {
@@ -48,6 +49,7 @@ public class Agenda {
      * Este método se utiliza para eliminar contactos del programa.
      * @param name string que representa el nombre del contacto
      */
+    @Override
     public void removeContact(String name) {
         Iterator<Persona> it = contacts.iterator();
 
@@ -66,6 +68,7 @@ public class Agenda {
      * @param oldPhone string que representa el número de teléfono antiguo que queremos cambiar.
      * @param newPhone string que representa el número de teléfono nuevo que queremos utilizar.
      */
+    @Override
     public void modifyPhoneNumber(String name, String oldPhone, String newPhone) {
         for (Persona c : contacts) {
             if (c.getName().equalsIgnoreCase(name)) {
@@ -84,6 +87,7 @@ public class Agenda {
      * Con este método, obtenemos los contactos que tenemos almacenados
      * @return una lista de contactos almacenados en el programa.
      */
+    @Override
     public List<Persona> getContacts() {
         return this.contacts;
     }
