@@ -4,13 +4,30 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+/**
+ * Esta clase sirve para utilizarla como herramienta de Agenda para los contactos.
+ * @author Jose Francisco Lozano
+ * @version 1.0 04/03/2024
+ */
 public class Agenda {
+    /**
+     * Atributo de la clase Agenda. Se trata de una Lista de contactos en la que guardaremos los contactos con su nombre
+     * y teléfono
+     */
     private List<Contacto> contacts; // Lista de Contacto
 
+    /**
+     * Método constructor de la clase Agenda, en la que asignamos un Array al atributo "Contacts".
+     */
     public Agenda() {
         this.contacts = new ArrayList<>();
     }
 
+    /**
+     * Este método se utiliza para añadir contactos al programa.
+     * @param name string que representa el nombre del contacto.
+     * @param phone string que representa el numero de teléfono del contacto.
+     */
     public void addContact(String name, String phone) {
         boolean exists = false;
         for (Contacto c : contacts) {
@@ -27,6 +44,10 @@ public class Agenda {
         }
     }
 
+    /**
+     * Este método se utiliza para eliminar contactos del programa.
+     * @param name string que representa el nombre del contacto
+     */
     public void removeContact(String name) {
         Iterator<Contacto> it = contacts.iterator();
 
@@ -39,6 +60,12 @@ public class Agenda {
         }
     }
 
+    /**
+     * Mediante este método podemos cambiar el número de teléfono de un contacto ya creado por otro número nuevo.
+     * @param name string que representa el nombre del contacto.
+     * @param oldPhone string que representa el número de teléfono antiguo que queremos cambiar.
+     * @param newPhone string que representa el número de teléfono nuevo que queremos utilizar.
+     */
     public void modifyPhoneNumber(String name, String oldPhone, String newPhone) {
         for (Contacto c : contacts) {
             if (c.getName().equalsIgnoreCase(name)) {
@@ -53,6 +80,10 @@ public class Agenda {
         }
     }
 
+    /**
+     * Con este método, obtenemos los contactos que tenemos almacenados
+     * @return una lista de contactos almacenados en el programa.
+     */
     public List<Contacto> getContacts() {
         return this.contacts;
     }
